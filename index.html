@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cafe para dos</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .album {
+            max-width: 600px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .cover {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        .artist {
+            color: #bbb;
+            margin-bottom: 40px;
+        }
+
+        .song {
+            background: #222;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .song-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="album">
+
+        <img src="portada.jpg" class="cover" alt="Portada del álbum">
+
+        <h1>Cafe para dos</h1>
+
+        <div class="artist">
+            Nahia
+        </div>
+
+        <div class="song">
+            <div class="song-title">
+                01 · Test Drive
+            </div>
+
+            <audio controls>
+                <source src="cancion1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="song">
+            <div class="song-title">
+                02 · Igande arratsaldeak
+            </div>
+
+            <audio controls>
+                <source src="cancion2.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="song">
+            <div class="song-title">
+                03 · Como te veo yo
+            </div>
+
+            <audio controls>
+                <source src="cancion3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="song">
+            <div class="song-title">
+                04 · No em cal res mes
+            </div>
+
+            <audio controls>
+                <source src="cancion4.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="song">
+            <div class="song-title">
+                05 · No era un sueño, era verdad
+            </div>
+
+            <audio controls>
+                <source src="cancion5.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+    </div>
+
+</body>
+</html>
