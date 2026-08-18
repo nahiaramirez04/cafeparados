@@ -7,65 +7,224 @@
     <title>Cafe para dos</title>
 
     <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #eaf4fb;
-        color: #263746;
-        text-align: center;
-    }
 
-    .album {
-        max-width: 600px;
-        margin: auto;
-        padding: 40px 20px;
-    }
+        /* =========================
+           DISEÑO GENERAL
+        ========================= */
 
-    .cover {
-        width: 100%;
-        max-width: 400px;
-        border-radius: 12px;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    h1 {
-        margin-top: 25px;
-        margin-bottom: 5px;
-        color: #29465a;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eaf4fb;
+            color: #263746;
+            text-align: center;
+        }
 
-    .artist {
-        color: #6f8da1;
-        margin-bottom: 40px;
-    }
+        .album {
+            max-width: 600px;
+            margin: auto;
+            padding: 40px 20px 60px;
+        }
 
-    .song {
-        background: #ffe6cc;
-        padding: 20px;
-        margin: 15px 0;
-        border-radius: 12px;
-        text-align: left;
-        border: 1px solid #f2c99f;
-        box-shadow: 0 5px 15px rgba(120, 80, 40, 0.08);
-    }
 
-    .song-title {
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #29465a;
-    }
+        /* =========================
+           PORTADA
+        ========================= */
 
-    audio {
-        width: 100%;
-        display: block;
-        border-radius: 30px;
-        background: #fff1df;
-    }
+        .cover {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
 
-    audio[hidden] {
-        display: none;
-    }
+        h1 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+            color: #29465a;
+            font-size: 38px;
+        }
+
+        .artist {
+            color: #6f8da1;
+            margin-bottom: 40px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           TARJETA DE CADA CANCIÓN
+        ========================= */
+
+        .song {
+            background: #ffe6cc;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 14px;
+            text-align: left;
+            border: 1px solid #f2c99f;
+            box-shadow: 0 5px 15px rgba(120, 80, 40, 0.08);
+        }
+
+        .song-title {
+            font-weight: bold;
+            margin-bottom: 14px;
+            color: #29465a;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           REPRODUCTOR PERSONALIZADO
+        ========================= */
+
+        .custom-player {
+            width: 100%;
+            background: #fff1df;
+            border-radius: 30px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        /* Botón PLAY / PAUSA */
+
+        .play-button {
+            border: none;
+            background: #f3c99d;
+            color: #29465a;
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .play-button:hover {
+            background: #edb980;
+            transform: scale(1.05);
+        }
+
+
+        /* Tiempo */
+
+        .time,
+        .duration {
+            font-size: 14px;
+            color: #4d5961;
+            white-space: nowrap;
+        }
+
+
+        /* Barra de progreso */
+
+        .progress {
+            flex: 1;
+            height: 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            background: #e8d4bf;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Barra en Chrome / Edge / Safari */
+
+        .progress::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #e8a96d;
+            cursor: pointer;
+        }
+
+        /* Barra en Firefox */
+
+        .progress::-moz-range-thumb {
+            width: 13px;
+            height: 13px;
+            border: none;
+            border-radius: 50%;
+            background: #e8a96d;
+            cursor: pointer;
+        }
+
+
+        /* Volumen */
+
+        .volume-button {
+            border: none;
+            background: transparent;
+            color: #29465a;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+
+        /* El audio real queda oculto.
+           El sonido sigue funcionando normalmente. */
+
+        .custom-player audio {
+            display: none;
+        }
+
+
+        /* =========================
+           MÓVIL
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .album {
+                padding: 25px 12px 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .song {
+                padding: 16px;
+            }
+
+            .custom-player {
+                gap: 8px;
+                padding: 9px 11px;
+            }
+
+            .time,
+            .duration {
+                font-size: 12px;
+            }
+
+            .play-button {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+            }
+
+        }
+
     </style>
 </head>
+
 
 <body>
 
@@ -79,71 +238,434 @@
             Nahia
         </div>
 
+
+        <!-- =========================
+             CANCIÓN 01
+        ========================= -->
+
         <div class="song">
+
             <div class="song-title">
                 01 · Test Drive
             </div>
 
-            <audio controls preload="metadata">
-                <source src="1. Test Drive.mp3" type="audio/mpeg">
-            </audio>
+            <div class="custom-player">
+
+                <button class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <span class="time">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span class="duration">
+                    0:00
+                </span>
+
+                <button class="volume-button" aria-label="Volumen">
+                    🔊
+                </button>
+
+                <audio preload="metadata">
+                    <source src="1. Test Drive.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
         </div>
 
+
+        <!-- =========================
+             CANCIÓN 02
+        ========================= -->
+
         <div class="song">
+
             <div class="song-title">
                 02 · Igande arratsaldeak
             </div>
 
-            <audio controls preload="metadata">
-                <source src="2. Igande arratsaldeak.mp3" type="audio/mpeg">
-            </audio>
+            <div class="custom-player">
+
+                <button class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <span class="time">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span class="duration">
+                    0:00
+                </span>
+
+                <button class="volume-button" aria-label="Volumen">
+                    🔊
+                </button>
+
+                <audio preload="metadata">
+                    <source src="2. Igande arratsaldeak.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
         </div>
 
+
+        <!-- =========================
+             CANCIÓN 03
+        ========================= -->
+
         <div class="song">
+
             <div class="song-title">
                 03 · Como te veo yo
             </div>
 
-            <audio controls preload="metadata">
-                <source src="3. Como te veo yo.mp3" type="audio/mpeg">
-            </audio>
+            <div class="custom-player">
+
+                <button class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <span class="time">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span class="duration">
+                    0:00
+                </span>
+
+                <button class="volume-button" aria-label="Volumen">
+                    🔊
+                </button>
+
+                <audio preload="metadata">
+                    <source src="3. Como te veo yo.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
         </div>
 
+
+        <!-- =========================
+             CANCIÓN 04
+        ========================= -->
+
         <div class="song">
+
             <div class="song-title">
                 04 · No em cal res mes
             </div>
 
-            <audio controls preload="metadata">
-                <source src="4. No em cal res mes.mp3" type="audio/mpeg">
-            </audio>
+            <div class="custom-player">
+
+                <button class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <span class="time">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span class="duration">
+                    0:00
+                </span>
+
+                <button class="volume-button" aria-label="Volumen">
+                    🔊
+                </button>
+
+                <audio preload="metadata">
+                    <source src="4. No em cal res mes.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
         </div>
 
+
+        <!-- =========================
+             CANCIÓN 05
+        ========================= -->
+
         <div class="song">
+
             <div class="song-title">
                 05 · No era un sueño, era verdad
             </div>
 
-            <audio controls preload="metadata">
-                <source src="5. No era un sueño, era verdad.mp3" type="audio/mpeg">
-            </audio>
+            <div class="custom-player">
+
+                <button class="play-button" aria-label="Reproducir">
+                    ▶
+                </button>
+
+                <span class="time">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span class="duration">
+                    0:00
+                </span>
+
+                <button class="volume-button" aria-label="Volumen">
+                    🔊
+                </button>
+
+                <audio preload="metadata">
+                    <source src="5. No era un sueño, era verdad.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
         </div>
 
     </div>
 
+
     <script>
-        document.querySelectorAll('.song audio').forEach((audio) => {
+
+        /* =================================
+           REPRODUCTORES
+        ================================= */
+
+        const players = document.querySelectorAll('.custom-player');
+
+
+        players.forEach(player => {
+
+            const audio = player.querySelector('audio');
+
+            const button = player.querySelector('.play-button');
+
+            const progress = player.querySelector('.progress');
+
+            const time = player.querySelector('.time');
+
+            const duration = player.querySelector('.duration');
+
+            const volumeButton = player.querySelector('.volume-button');
+
+
+            /* =========================
+               REPRODUCIR / PAUSAR
+            ========================= */
+
+            button.addEventListener('click', () => {
+
+                /* Si está pausado, reproducimos */
+
+                if (audio.paused) {
+
+                    /* Pausamos cualquier otra canción */
+
+                    document.querySelectorAll('.custom-player audio').forEach(otherAudio => {
+
+                        if (otherAudio !== audio) {
+
+                            otherAudio.pause();
+
+                            const otherButton =
+                                otherAudio.closest('.custom-player')
+                                .querySelector('.play-button');
+
+                            otherButton.textContent = '▶';
+                        }
+
+                    });
+
+
+                    audio.play();
+
+                    button.textContent = '❚❚';
+
+                }
+
+                /* Si está reproduciéndose, pausamos */
+
+                else {
+
+                    audio.pause();
+
+                    button.textContent = '▶';
+
+                }
+
+            });
+
+
+            /* =========================
+               DURACIÓN
+            ========================= */
+
+            audio.addEventListener('loadedmetadata', () => {
+
+                duration.textContent =
+                    formatTime(audio.duration);
+
+            });
+
+
+            /* =========================
+               ACTUALIZAR TIEMPO
+            ========================= */
+
+            audio.addEventListener('timeupdate', () => {
+
+                if (!audio.duration) return;
+
+                const percentage =
+                    (audio.currentTime / audio.duration) * 100;
+
+                progress.value = percentage;
+
+                time.textContent =
+                    formatTime(audio.currentTime);
+
+            });
+
+
+            /* =========================
+               MOVER LA BARRA
+            ========================= */
+
+            progress.addEventListener('input', () => {
+
+                if (!audio.duration) return;
+
+                audio.currentTime =
+                    (progress.value / 100) * audio.duration;
+
+            });
+
+
+            /* =========================
+               CUANDO TERMINA
+            ========================= */
+
+            audio.addEventListener('ended', () => {
+
+                button.textContent = '▶';
+
+                progress.value = 0;
+
+                time.textContent = '0:00';
+
+            });
+
+
+            /* =========================
+               VOLUMEN
+            ========================= */
+
+            volumeButton.addEventListener('click', () => {
+
+                audio.muted = !audio.muted;
+
+                if (audio.muted) {
+
+                    volumeButton.textContent = '🔇';
+
+                } else {
+
+                    volumeButton.textContent = '🔊';
+
+                }
+
+            });
+
+
+            /* =========================
+               COMPROBAR SI EXISTE MP3
+            ========================= */
+
             const source = audio.querySelector('source');
-            if (!source) return;
 
-            const testAudio = new Audio();
-            testAudio.preload = 'none';
-            testAudio.src = source.src;
+            if (source) {
 
-            testAudio.addEventListener('error', () => {
-                audio.hidden = true;
-            }, { once: true });
+                const testAudio = new Audio();
+
+                testAudio.preload = 'none';
+
+                testAudio.src = source.src;
+
+                testAudio.addEventListener('error', () => {
+
+                    player.closest('.song').style.display = 'none';
+
+                }, { once: true });
+
+            }
+
         });
+
+
+        /* =================================
+           CONVERTIR SEGUNDOS A 0:00
+        ================================= */
+
+        function formatTime(seconds) {
+
+            if (isNaN(seconds)) {
+                return '0:00';
+            }
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const remainingSeconds =
+                Math.floor(seconds % 60);
+
+            return minutes + ':' +
+                remainingSeconds
+                    .toString()
+                    .padStart(2, '0');
+
+        }
+
     </script>
 
 </body>
